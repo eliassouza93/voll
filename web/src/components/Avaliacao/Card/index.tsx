@@ -3,7 +3,7 @@ import styled from "styled-components";
 import IProfissional from "../../../types/IProfissional";
 
 const ContainerEstilizado = styled.div`
-    flex: 40%;
+    flex: 41%;
     max-width: 100%;
     background-color: #ffffff;
     padding: 1em;
