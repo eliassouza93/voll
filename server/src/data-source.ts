@@ -1,15 +1,14 @@
-
-import { DataSource } from 'typeorm'
-import 'reflect-metadata'
-import { Paciente } from './pacientes/pacienteEntity.js'
-import { Endereco } from './enderecos/enderecoEntity.js'
-import { Especialista } from './especialistas/EspecialistaEntity.js'
-import { Avaliacoes } from './avaliacoes/avaliacoesEntity.js'
-import * as dotenv from 'dotenv'
-import { Clinica } from './clinicas/clinicaEntity.js'
-import { Consulta } from './consultas/consultaEntity.js'
-import { Autenticaveis } from './auth/authEntity.js'
-dotenv.config({ path: '.env' })
+import { DataSource } from "typeorm";
+import "reflect-metadata";
+import { Paciente } from "./pacientes/pacienteEntity.js";
+import { Endereco } from "./enderecos/enderecoEntity.js";
+import { Especialista } from "./especialistas/EspecialistaEntity.js";
+import { Avaliacoes } from "./avaliacoes/avaliacoesEntity.js";
+import * as dotenv from "dotenv";
+import { Clinica } from "./clinicas/clinicaEntity.js";
+import { Consulta } from "./consultas/consultaEntity.js";
+import { Autenticaveis } from "./auth/authEntity.js";
+dotenv.config({ path: ".env" });
 
 // export const AppDataSource = new DataSource({
 //   type: 'mysql',
@@ -25,11 +24,19 @@ dotenv.config({ path: '.env' })
 //   subscribers: []
 // })
 export const AppDataSource = new DataSource({
-  type: 'sqlite',
-  database: './src/database/database.sqlite', // caminho para o arquivo do banco de dados SQLite
+  type: "sqlite",
+  database: "./src/database/database.sqlite", // caminho para o arquivo do banco de dados SQLite
   synchronize: true,
   logging: false,
-  entities: [Paciente, Endereco, Especialista, Avaliacoes, Clinica, Consulta, Autenticaveis],
+  entities: [
+    Paciente,
+    Endereco,
+    Especialista,
+    Avaliacoes,
+    Clinica,
+    Consulta,
+    Autenticaveis,
+  ],
   migrations: [],
-  subscribers: []
-})
+  subscribers: [],
+});

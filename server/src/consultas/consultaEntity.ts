@@ -1,7 +1,6 @@
-
-import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from 'typeorm'
-import { Especialista } from '../especialistas/EspecialistaEntity.js'
-import { Paciente } from '../pacientes/pacienteEntity.js'
+import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from "typeorm";
+import { Especialista } from "../especialistas/EspecialistaEntity.js";
+import { Paciente } from "../pacientes/pacienteEntity.js";
 
 enum Lembrete {
   email,
@@ -11,35 +10,35 @@ enum Lembrete {
 enum MotivoCancelamento {
   paciente_desistiu,
   médico_cancelou,
-  outros
+  outros,
 }
 
 @Entity()
 export class Consulta {
-  @PrimaryGeneratedColumn('uuid')
-    id: string
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @ManyToOne(() => Especialista, { eager: true })
   // @JoinColumn({ name: 'especialista_id' })
-    especialista: Especialista
+  especialista: Especialista;
 
   @ManyToOne(() => Paciente, { eager: true })
   // @JoinColumn({ name: 'paciente_id' })
-    paciente: Paciente
+  paciente: Paciente;
 
-  @Column({ type: 'datetime', nullable: true })
-    data: Date
+  @Column({ type: "datetime", nullable: true })
+  data: Date;
 
-  @Column({ type: 'boolean', default: false })
-    desejaLembrete: boolean
+  @Column({ type: "boolean", default: false })
+  desejaLembrete: boolean;
 
-  @Column({ type: 'simple-array', nullable: true })
-    lembretes: string[]
+  @Column({ type: "simple-array", nullable: true })
+  lembretes: string[];
 
-  @Column({ name: 'motivo_cancelamento', nullable: true })
-    motivoCancelamento: string
+  @Column({ name: "motivo_cancelamento", nullable: true })
+  motivoCancelamento: string;
 
-  cancelar (motivo: string): void {
-    this.motivoCancelamento = motivo
+  cancelar(motivo: string): void {
+    this.motivoCancelamento = motivo;
   }
 }
