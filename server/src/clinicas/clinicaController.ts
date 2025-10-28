@@ -106,7 +106,7 @@ export const listaEspecialistasPorClinica = async (
     where: { id },
     relations: ["especialistas"],
   });
-  if (clinica == null)
+  if (clinica == null || !clinica)
     return res.status(404).json({ message: "Clinica não encontrada" });
 
   const especialistasDaClinica = clinica.especialistas;
